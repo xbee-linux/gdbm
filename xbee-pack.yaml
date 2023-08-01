@@ -1,0 +1,36 @@
+schema-version: 1.0
+
+type: builder
+
+description: |
+  The GDBM package contains the GNU Database Manager. 
+  It is a library of database functions that uses extensible hashing and works like the standard UNIX dbm.
+  The library provides primitives for storing key/data pairs, searching and retrieving the data
+  by its key and deleting a key along with its data.
+  Programmes installés: gdbm_dump, gdbm_load, and gdbmtool
+  Installed libraries: libgdbm.so and libgdbm_compat.so
+  
+  gdbm_dump: Dumps a GDBM database to a file
+  gdbm_load: Recreates a GDBM database from a dump file
+  gdbmtool: Tests and modifies a GDBM database
+  
+  libgdbm: Contains functions to manipulate a hashed database
+  libgdbm_compat: Compatibility library containing older DBM functions
+
+var:
+  version: 1.23
+
+provision:
+  - url:
+      from: https://ftp.gnu.org/gnu/gdbm/gdbm-{{ .version }}.tar.gz
+      todir: "{{ .xbee.src }}"
+
+build:
+  - shell:
+      cmds:
+        - ./configure --prefix=/usr --disable-static --enable-libgdbm-compat
+        - make
+        - make install DESTDIR={{ .xbee.out }}
+      directory: "{{ .xbee.src }}/gdbm-{{ .version }}"
+
+

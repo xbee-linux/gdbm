@@ -21,9 +21,7 @@ var:
   version: 1.23
 
 provision:
-  - url:
-      from: https://ftp.gnu.org/gnu/gdbm/gdbm-{{ .version }}.tar.gz
-      todir: "{{ .xbee.src }}"
+  url: https://ftp.gnu.org/gnu/gdbm/gdbm-{{ .version }}.tar.gz
 
 build:
   - shell:

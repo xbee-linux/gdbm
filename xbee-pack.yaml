@@ -18,7 +18,8 @@ description: |
   libgdbm_compat: Compatibility library containing older DBM functions
 
 var:
-  version: 1.23
+  xbee:
+    version: 1.23
 
 provision:
   url: https://ftp.gnu.org/gnu/gdbm/gdbm-{{ .version }}.tar.gz

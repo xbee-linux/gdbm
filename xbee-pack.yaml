@@ -22,7 +22,7 @@ var:
     version: 1.23
 
 provision:
-  url: https://ftp.gnu.org/gnu/gdbm/gdbm-{{ .version }}.tar.gz
+  url: https://ftp.gnu.org/gnu/gdbm/gdbm-{{ .xbee.version }}.tar.gz
 
 build:
   - shell:
@@ -30,6 +30,6 @@ build:
         - ./configure --prefix=/usr --disable-static --enable-libgdbm-compat
         - make
         - make install DESTDIR={{ .xbee.out }}
-      directory: "{{ .xbee.src }}/gdbm-{{ .version }}"
+      directory: "{{ .xbee.src }}/gdbm-{{ .xbee.version }}"
 
 

@@ -1,7 +1,5 @@
 schema-version: 1.0
 
-type: builder
-
 description: |
   The GDBM package contains the GNU Database Manager. 
   It is a library of database functions that uses extensible hashing and works like the standard UNIX dbm.

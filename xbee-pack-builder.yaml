@@ -24,7 +24,7 @@ provision:
 
 build:
   - shell:
-      cmds:
+      cmd:
         - ./configure --prefix=/usr --disable-static --enable-libgdbm-compat
         - make
         - make install DESTDIR={{ .xbee.out }}
